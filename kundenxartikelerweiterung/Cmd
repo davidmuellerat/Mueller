@@ -1,0 +1,27 @@
+create table bestellungen(ordernumber int primary key auto_increment not null, kid int, aid int, anzahl int, foreign key(aid) references artikel(id) on update no action, foreign key(kid) references kunden(id) on update no action);
+create table kunden(id int auto_increment primary key not null, name varchar(30), email varchar(40));
+create table artikel(id int primary key auto_increment not null, bezeichnung varchar(30), preis decimal(10,2));
+CREATE TABLE lager (artikel_id int NOT NULL,lagerbestand int NOT NULL,PRIMARY KEY (artikel_id),FOREIGN KEY (artikel_id) REFERENCES artikel(id));
+
+
+
+INSERT INTO kunden(name, email) VALUES ("David Müller", "david.mueller2707@gmail.com");
+INSERT INTO kunden(name, email) VALUES ("Hendrik Steiner", "hendrik.steiner@gmail.com");
+INSERT INTO kunden(name, email) VALUES ("Julian Raffeiner", "juraffeiner@gmail.com");
+INSERT INTO kunden(name, email) VALUES ("Leon Wohlgemuth", "leonwohl@gmail.com");
+
+
+
+INSERT INTO artikel(bezeichnung, preis) VALUES ("Steak", 30);
+INSERT INTO artikel(bezeichnung, preis) VALUES ("Brot", 5);
+INSERT INTO artikel(bezeichnung, preis) VALUES ("Fisch", 50);
+INSERT INTO artikel(bezeichnung, preis) VALUES ("TV", 500);
+
+
+
+INSERT INTO lager (artikel_id, lagerbestand) VALUES (1, 15);
+INSERT INTO lager (artikel_id, lagerbestand) VALUES (2, 50);
+INSERT INTO lager (artikel_id, lagerbestand) VALUES (3, 30);
+INSERT INTO lager (artikel_id, lagerbestand) VALUES (4, 3);
+
+
